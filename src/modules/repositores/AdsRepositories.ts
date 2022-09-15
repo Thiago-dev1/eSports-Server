@@ -46,6 +46,20 @@ class AdsRepositories {
 
         return ad
     }
+
+    async discordByAds(adId: string) {
+
+        const ad = await this.prisma.ad.findUniqueOrThrow({
+            select: {
+                discord: true
+            },
+            where: {
+                id: adId
+            }
+         })
+
+         return ad
+    }
 }
 
 export { AdsRepositories }
