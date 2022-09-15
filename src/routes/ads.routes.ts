@@ -5,6 +5,7 @@ import { PrismaClient} from "@prisma/client"
 
 
 import { convertHourStringToMinutes } from "../utils/convert-hour-string-to-minutes"
+import { createAdsControler } from "../modules/useCases/createAds";
 
 
 
@@ -15,23 +16,7 @@ const prisma = new PrismaClient()
 
 
 adsRoutes.post('/', async (req, res) => {
-    const body = req.body
-
-    // colocando no banco de dados
-    const ad = await prisma.ad.create({
-        data: {
-            gameId: body.gameId,
-            name: body.name,
-            discord: body.discord,
-            yearsPlaying: body.yearsPlaying,
-            weekDays: body.weekDays.join(','),
-            hourStart: convertHourStringToMinutes(body.hourStart),
-            hourEnd:convertHourStringToMinutes(body.hourEnd),
-            useVoiceChannel: body.useVoiceChannel
-        }
-    })
-
-    return res.status(201).json(ad)
+    return createAdsControler.handle(req, res)
 })
 
 
