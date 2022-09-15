@@ -3,6 +3,7 @@ import { Router } from "express";
 import { PrismaClient} from "@prisma/client"
 
 import { convertMinutesToHourString } from "../utils/convert-minutes-to-hour-string"
+import { listGamesController } from "../modules/useCases/listGames";
 
 
 const gamesRoutes = Router()
@@ -10,17 +11,9 @@ const gamesRoutes = Router()
 const prisma = new PrismaClient()
 
 gamesRoutes.get('/', async (req, res) => {
-    const games =  await prisma.game.findMany({
-        include: {
-            _count: {
-                select: {
-                    Ad: true
-                }
-            }
-        }
-    })
 
-    return res.status(200).json(games)
+
+    return listGamesController.handle(req, res)
 })
 
 gamesRoutes.get('/:id/ads', async (req, res) => {
