@@ -1,28 +1,29 @@
-# Back-end
+![Cover](.github/cover.png)
 
-## Entidade
+# Rocketseat NLW eSports
 
-### Game
+Evento da [Rocketseat](https://www.rocketseat.com.br). Aplicação Full Stack para conectar jogadores.
 
-id
-title
-bannerUrl
+## Requisitos
 
-### Ad
+- [Node](https://nodejs.org) versão LTS
+- [npm](https://www.npmjs.com) or [yarn](https://yarnpkg.com/getting-started/install)
 
-id
-gameId
-name
-yearsPlaying
-weekDays
-hourStart
-hourEnd
-useVoiceChannel
-createdAt
+## Instruções
 
-## Casos de uso
+1. npm install
+1. npx prisma migrate dev
+1. Tenha o [Web](https://github.com/Thiago-dev1/eSports-Web)
+1. Inicie o servidor do backend em um terminal, rodando o comando `npm run dev` ou `yarn dev` dentro da pasta `server`
+1. Inicie o servidor da web em outro terminal, rodando `npm run dev` ou `yarn dev` dentro da pasta `web`
 
-- Listagem de games com contagem de anúncios
-- Criação de novo anúncio
-- Listagem de anúncios por game
-- Buscar discord éçp ID dp anúncio
+## Tech Stack
+
+- [TypeScript](https://www.typescriptlang.org)
+
+### Backend
+
+- [Node](https://nodejs.org)
+- [Express](https://expressjs.com)
+- [Prisma](https://www.prisma.io)
+- [SQLite](https://www.sqlite.org/index.html)
